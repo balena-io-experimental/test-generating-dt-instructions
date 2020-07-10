@@ -1,0 +1,65 @@
+[  {
+  "isGroup": true,
+  "name": "board",
+  "message": "Board Options",
+  "options": [
+    {
+      "name": "processorCore",
+      "message": "CPU Cores",
+      "type": "list",
+      "choices": [
+        "single",
+        "quad"
+      ]
+    }
+  ]
+},
+{
+  "isGroup": true,
+  "name": "network",
+  "message": "Network",
+  "options": [
+    {
+      "message": "Network Connection",
+      "name": "network",
+      "type": "list",
+      "choices": [
+        "ethernet",
+        "wifi"
+      ]
+    },
+    {
+      "message": "Wifi SSID",
+      "name": "wifiSsid",
+      "type": "text",
+      "when": {
+        "network": "wifi"
+      }
+    },
+    {
+      "message": "Wifi Passphrase",
+      "name": "wifiKey",
+      "type": "password",
+      "when": {
+        "network": "wifi"
+      }
+    }
+  ]
+},
+
+{
+  "isGroup": true,
+  "isCollapsible": true,
+  "collapsed": true,
+  "name": "advanced",
+  "message": "Advanced",
+  "options": [
+    {
+      "message": "Check for updates every X minutes",
+      "name": "appUpdatePollInterval",
+      "type": "number",
+      "min": 0,
+      "default": 1
+    }
+  ]
+}  ]

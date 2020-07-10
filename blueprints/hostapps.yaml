@@ -1,0 +1,12 @@
+selector:
+  hw.device-type: 1
+  sw.os-flavor: 1
+output:
+  filename: release.json
+  slug: "{{this.children.hw.device-type.slug}}-{{this.children.sw.os-flavor.slug}}-{{this.children.sw.os-flavor.version}}"
+  path: "hostapps/v1/{{this.children.hw.device-type.slug}}-{{this.children.sw.os-flavor.slug}}-{{this.children.sw.os-flavor.version}}"
+  type: sw.hostapps
+  template:
+    - name: hostapps-device
+      data: >
+        {{import partial="release-model" combination="sw.os-flavor"}}

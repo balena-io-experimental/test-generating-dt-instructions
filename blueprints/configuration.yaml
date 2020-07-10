@@ -1,0 +1,21 @@
+selector:
+  hw.device-type: 1
+output:
+  filename: configuration.json
+  slug: "{{this.children.hw.device-type.slug}}"
+  path: "configuration/v1/{{this.children.hw.device-type.slug}}"
+  type: sw.device-type.configuration
+  template:
+    - name: configuration-device
+      data: >
+        {{{{raw}}}}
+        [
+        {{{{/raw}}}}
+        {{import partial="hardware-configuration" combination="hw.device-type"}}
+ 
+        {{import partial="network-configuration" combination="hw.device-type"}}
+
+        {{import partial="supervisor-configuration" combination="hw.device-type"}}
+        {{{{raw}}}}
+        ]
+        {{{{/raw}}}}

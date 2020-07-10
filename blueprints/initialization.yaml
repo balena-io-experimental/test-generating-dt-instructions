@@ -1,0 +1,26 @@
+selector:
+  hw.device-type: 1
+output:
+  filename: initialization.json
+  slug: "{{this.children.hw.device-type.slug}}"
+  path: "initialization/v1/{{this.children.hw.device-type.slug}}"
+  type: sw.device-type.initialization
+  template:
+    - name: initialization-device
+      data: >
+        {{{{raw}}}}
+        {
+        {{{{/raw}}}}
+        "options": {{{{raw}}}} [ {{{{/raw}}}}
+
+        {{import partial="init-options" combination="hw.device-type"}}
+ 
+        {{{{raw}}}} ] {{{{/raw}}}},
+
+        "operations": {{{{raw}}}} [ {{{{/raw}}}}
+          {{import partial="init-operations" combination="hw.device-type"}}
+        {{{{raw}}}} ] {{{{/raw}}}}
+
+        {{{{raw}}}}
+        }
+        {{{{/raw}}}}
